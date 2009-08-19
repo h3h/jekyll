@@ -41,6 +41,7 @@ module Jekyll
     'lsi'          => false,
     'pygments'     => false,
     'markdown'     => 'maruku',
+    'multiviews'   => false,
     'permalink'    => 'date',
 
     'maruku'       => {

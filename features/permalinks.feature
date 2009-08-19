@@ -34,6 +34,14 @@ Feature: Fancy permalinks
     And I should see "Totally awesome" in "_site/awesome/index.html"
     And I should see "Totally uhm, sitemap" in "_site/sitemap.xml"
 
+  Scenario: Use multiviews with custom permalink schema for pages
+    And I have an "awesome.html" page that contains "Totally awesome"
+    And I have a configuration file with "multiviews" set to "true"
+    And I have a configuration file with "permalink" set to ":title"
+    When I run jekyll
+    Then the _site directory should exist
+    And I should see "Totally awesome" in "_site/awesome.html"
+
   Scenario: Use custom permalink schema with prefix
     Given I have a _posts directory
     And I have the following post:

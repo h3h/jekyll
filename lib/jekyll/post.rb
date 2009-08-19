@@ -200,8 +200,12 @@ module Jekyll
       path = File.join(dest, CGI.unescape(self.url))
 
       if template[/\.html$/].nil?
-        FileUtils.mkdir_p(path)
-        path = File.join(path, "index.html")
+        if self.site.multiviews
+          path += ".html"
+        else
+          FileUtils.mkdir_p(path)
+          path = File.join(path, "index.html")
+        end
       end
 
       File.open(path, 'w') do |f|

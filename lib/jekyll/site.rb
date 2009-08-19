@@ -2,7 +2,8 @@ module Jekyll
 
   class Site
     attr_accessor :config, :layouts, :posts, :categories, :exclude,
-                  :source, :dest, :lsi, :pygments, :permalink_style, :tags
+                  :source, :dest, :lsi, :multiviews, :pygments,
+                  :permalink_style, :tags
 
     # Initialize the site
     #   +config+ is a Hash containing site configurations details
@@ -14,6 +15,7 @@ module Jekyll
       self.source          = config['source']
       self.dest            = config['destination']
       self.lsi             = config['lsi']
+      self.multiviews      = config['multiviews']
       self.pygments        = config['pygments']
       self.permalink_style = config['permalink'].to_sym
       self.exclude         = config['exclude'] || []
