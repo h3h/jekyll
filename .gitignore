@@ -1,3 +1,6 @@
+/.rvmrc
+/.bundle
+Gemfile*
 test/dest
 *.gem
 pkg/
