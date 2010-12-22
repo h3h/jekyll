@@ -185,7 +185,13 @@ module Jekyll
     def destination(dest)
       # The url needs to be unescaped in order to preserve the correct filename
       path = File.join(dest, CGI.unescape(self.url))
-      path = File.join(path, "index.html") if template[/\.html$/].nil?
+      if template[/\.html$/].nil?
+        if self.site.multiviews
+          path += '.html'
+        else
+          path = File.join(path, "index.html")
+        end
+      end
       path
     end
 
